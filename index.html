@@ -63,7 +63,7 @@ body {
 
     <h3>The problem with variable fonts</h3>
     <p>
-      <a href="https://v-fonts.com/fonts/crimson-pro">Crimson Pro</a> is a nice, open source variable font. It varies in weight from 275 to 900. It looks like other nice fonts but the continuously variable weight can play the role or a visual variable to represent a quantitative value.
+      <a href="https://v-fonts.com/fonts/crimson-pro">Crimson Pro</a> is a nice, open source variable font. It varies in weight from 275 to 900. It looks like normal similar fonts but the continuously variable weight can play the role of a visual variable representing a quantitative value.
     </p>
     <figure style="font-family: 'Crimson Pro'; font-size: 2em;">
       <span style="font-variation-settings: 'wght' 275;">Lorem ipsum 275</span><br>
@@ -79,11 +79,11 @@ body {
       data-font-cloud-min="275"
       data-font-cloud-max="900"
     ></figure>
-    <p>Nice and readable. However I regret two issues: <ol><li>The emphasis not only makes the font heavier, but also slightly larger.</li><li>the scale we have to word with is not so large, and notably the less emphasized words still take a lot of visual space. This creates the misunderstanding that small values matter.</li></ol></p>
+    <p>Nice and readable. However I regret two issues: <ol><li>The emphasis not only makes the font heavier, but also slightly larger.</li><li>The scale we have to work with is not so large, and notably the less emphasized words still take a lot of visual space. This overrepresents small values.</li></ol></p>
 
     <h3>Haki: vary the width</h3>
     <p>
-      <a href="https://v-fonts.com/fonts/haki">Haki</a> varies in width by adding weight.
+      <a href="https://v-fonts.com/fonts/haki">Haki</a> varies in width by adding weight. It is more subtle than just scaling along Y axis, as it respects the graphic signals of the font.
     </p>
     <figure style="font-family: 'Haki'; font-size: 1.6em;">
       <span style="font-variation-settings: 'wght' 050;">Lorem ipsum 050</span><br>
@@ -92,7 +92,7 @@ body {
       <span style="font-variation-settings: 'wght' 200;">Lorem ipsum 200</span><br>
       <span style="font-variation-settings: 'wght' 250;">Lorem ipsum 250</span><br>
     </figure>
-    <p>I appreciate that the width and the weight vary accordingly. Added to the fact that the font almost fully occupies the vertical space, we can work with it almost like we would work with rectangles.</p>
+    <p>I appreciate that the width and the weight vary accordingly. Added to the fact that the font almost fully occupies vertical space, we can work with it almost like we would work with rectangles.</p>
     <figure
       style="font-family: 'Haki'; font-size: 1.6em;"
       class="cloud"
@@ -126,11 +126,11 @@ body {
       data-font-cloud-min="0"
       data-font-cloud-max="900"
     ></figure>
-    <p>Pros: Readable. Width almost constant. Excellent contrast, especially how words which represent a value close to zero are almost invisible.<br>Cons: Words with low values are still there and create negative space (desirable or not depending on the situation).<br>Note: we could trivially tune the minimum wieght to not have it too thin if we wanted to.</p>
+    <p>Pros: Readable. Width almost constant. Excellent contrast, especially on how words representing a value close to zero are almost invisible.<br>Cons: Words with low values are still there and create negative space (desirable or not depending on the situation).<br><em>Note: we could trivially tune the minimum wieght to not have it too thin if we wanted to.</em></p>
 
     <h3>Source Code Variable</h3>
     <p>
-      <a href="https://v-fonts.com/fonts/source-code-variable">Source Code Variable</a> has a fixed width and a good range of weights, though not as much as Hepta.
+      <a href="https://v-fonts.com/fonts/source-code-variable">Source Code Variable</a> has a fixed width and a good range of weights, though not as much as Hepta Slab.
     </p>
     <figure style="font-family: 'Source Code Variable'; font-size: 1.6em;">
       <span style="font-variation-settings: 'wght' 200;">Lorem ipsum 200</span><br>
@@ -151,7 +151,7 @@ body {
     <p>Not the best on every aspect, but a really good compromise.</p>
 
     <h2>Changing the size at fixed thickness</h2>
-    <p>Another approach that I really like, notably because I often have to design large printable maps (of networks), it the possibility to scale the font without changing the thickness of the lines. As if someone had drawn the letters bigger while still using the same pen.</p>
+    <p>Another approach that I really like, notably because I often have to design large printable maps (of networks), is the possibility to scale the font without changing the thickness of the lines. As if someone had drawn the letters bigger while still using the same pen.</p>
     <p>Unfortunately we have no straightforward variable for that, but we can just come up with a rule to compensate size and thickness (generally linearly). Below is an example with Hepta.</p>
     <figure
       style="font-family: 'Hepta Slab';"
