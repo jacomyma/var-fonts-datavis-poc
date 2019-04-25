@@ -37,6 +37,12 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  src: url('assets/HeptaSlabBeta-VF.woff2');
+  font-family:'Hepta Slab';
+  font-style: normal;
+}
+
   </style>
 </head>
 <body>
@@ -67,7 +73,7 @@ body {
       data-font-min="275"
       data-font-max="900"
     ></figure>
-    <p>Nice and readable. However I regret two issues: <ol><li>The emphasis not only makes the font heavier, but also slightly larger.</li><li>the scale we have to word with is not so large, and notably the less emphasized words still take a lot of visual space.</li></ol></p>
+    <p>Nice and readable. However I regret two issues: <ol><li>The emphasis not only makes the font heavier, but also slightly larger.</li><li>the scale we have to word with is not so large, and notably the less emphasized words still take a lot of visual space. This creates the misunderstanding that small values matter.</li></ol></p>
 
     <h3>Haki: vary the width</h3>
     <p>
@@ -88,7 +94,34 @@ body {
       data-font-min="50"
       data-font-max="250"
     ></figure>
-    <p>Pros: small words do not occupy a lot of space. The scale is pretty large.<br>Cons: poor readibility.</p>
+    <p>Pros: Small words do not occupy a lot of space, as expected from encoding a quantitative value visually. The contrast is good.<br>Cons: Poor legibility.</p>
+
+    <h3>Hepta Slab</h3>
+    <p>
+      <a href="https://v-fonts.com/fonts/hepta-slab">Hepta Slab</a> is an elegant serif that varies in weight and goes down to hairline thickness.
+    </p>
+    <figure style="font-family: 'Hepta Slab'; font-size: 1.6em;">
+      <span style="font-variation-settings: 'wght' 000;">Lorem ipsum 000</span><br>
+      <span style="font-variation-settings: 'wght' 100;">Lorem ipsum 100</span><br>
+      <span style="font-variation-settings: 'wght' 200;">Lorem ipsum 200</span><br>
+      <span style="font-variation-settings: 'wght' 300;">Lorem ipsum 300</span><br>
+      <span style="font-variation-settings: 'wght' 400;">Lorem ipsum 400</span><br>
+      <span style="font-variation-settings: 'wght' 500;">Lorem ipsum 500</span><br>
+      <span style="font-variation-settings: 'wght' 600;">Lorem ipsum 600</span><br>
+      <span style="font-variation-settings: 'wght' 700;">Lorem ipsum 700</span><br>
+      <span style="font-variation-settings: 'wght' 800;">Lorem ipsum 800</span><br>
+      <span style="font-variation-settings: 'wght' 900;">Lorem ipsum 900</span><br>
+    </figure>
+    <p>I appreciate that resulting width is <em>almost</em> constant up to ~450.</p>
+    <figure
+      style="font-family: 'Hepta Slab'; font-size: 1.6em;"
+      class="cloud"
+      data-font-var="wght"
+      data-font-min="0"
+      data-font-max="900"
+    ></figure>
+    <p>Pros: Readable. Width almost constant. Excellent contrast, especially how words which represent a value close to zero are almost invisible.<br>Cons: Words with low values are still there and create negative space (desirable or not depending on the situation).<br>Note: we could trivially tune the minimum wieght to not have it too thin if we wanted to.</p>
+
     <footer>
       <p>TODO: <a href="">link to repo</a></p>
     </footer>
