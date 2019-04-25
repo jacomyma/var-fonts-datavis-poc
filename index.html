@@ -46,12 +46,12 @@ body {
       <h1>Proof of concept: variable fonts for data visualization</h1>
     </header>
     <p>
-      Variable fonts have a lot of design space. Each one behaves its own way. It impacts semiotics in various ways. Here are a few ideas and reflections on operationalization to data visualization.
+      <a href="https://v-fonts.com/">Variable fonts</a> have a lot of design space. Each different font behaves its own way. These differences impact semiotics in various ways. Here are a few ideas and reflections on operationalization to data visualization.
     </p>
 
     <h3>The problem with variable fonts</h3>
     <p>
-      Crimson Pro is a nice, open source variable font. It varies in weight from 275 to 900. It looks like other nice fonts but the continuously variable weight can play the role or a visual variable to represent a quantitative value.
+      <a href="https://v-fonts.com/fonts/crimson-pro">Crimson Pro</a> is a nice, open source variable font. It varies in weight from 275 to 900. It looks like other nice fonts but the continuously variable weight can play the role or a visual variable to represent a quantitative value.
     </p>
     <figure style="font-family: 'Crimson Pro'; font-size: 2em;">
       <span style="font-variation-settings: 'wght' 275;">Lorem ipsum 275</span><br>
@@ -67,10 +67,11 @@ body {
       data-font-min="275"
       data-font-max="900"
     ></figure>
+    <p>Nice and readable. However I regret two issues: <ol><li>The emphasis not only makes the font heavier, but also slightly larger.</li><li>the scale we have to word with is not so large, and notably the less emphasized words still take a lot of visual space.</li></ol></p>
 
     <h3>Haki: vary the width</h3>
     <p>
-      Haki varies in width by adding weight.
+      <a href="https://v-fonts.com/fonts/haki">Haki</a> varies in width by adding weight.
     </p>
     <figure style="font-family: 'Haki'; font-size: 1.6em;">
       <span style="font-variation-settings: 'wght' 050;">Lorem ipsum 050</span><br>
@@ -79,6 +80,7 @@ body {
       <span style="font-variation-settings: 'wght' 200;">Lorem ipsum 200</span><br>
       <span style="font-variation-settings: 'wght' 250;">Lorem ipsum 250</span><br>
     </figure>
+    <p>I appreciate that the width and the weight vary accordingly. Added to the fact that the font almost fully occupies the vertical space, we can work with it almost like we would work with rectangles.</p>
     <figure
       style="font-family: 'Haki'; font-size: 1.6em;"
       class="cloud"
@@ -86,6 +88,7 @@ body {
       data-font-min="50"
       data-font-max="250"
     ></figure>
+    <p>Pros: small words do not occupy a lot of space. The scale is pretty large.<br>Cons: poor readibility.</p>
     <footer>
       <p>TODO: <a href="">link to repo</a></p>
     </footer>
