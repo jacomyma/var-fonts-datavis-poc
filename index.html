@@ -43,6 +43,12 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  src: url('assets/SourceCodeVariable-Roman.otf.woff2'), url('assets/SourceCodeVariable-Roman.ttf.woff2');
+  font-family:'Source Code Variable';
+  font-style: normal;
+}
+
   </style>
 </head>
 <body>
@@ -69,9 +75,9 @@ body {
     <figure
       style="font-family: 'Crimson Pro'; font-size: 1.6em;"
       class="cloud"
-      data-font-var="wght"
-      data-font-min="275"
-      data-font-max="900"
+      data-font-cloud-var="wght"
+      data-font-cloud-min="275"
+      data-font-cloud-max="900"
     ></figure>
     <p>Nice and readable. However I regret two issues: <ol><li>The emphasis not only makes the font heavier, but also slightly larger.</li><li>the scale we have to word with is not so large, and notably the less emphasized words still take a lot of visual space. This creates the misunderstanding that small values matter.</li></ol></p>
 
@@ -90,15 +96,15 @@ body {
     <figure
       style="font-family: 'Haki'; font-size: 1.6em;"
       class="cloud"
-      data-font-var="wght"
-      data-font-min="50"
-      data-font-max="250"
+      data-font-cloud-var="wght"
+      data-font-cloud-min="50"
+      data-font-cloud-max="250"
     ></figure>
     <p>Pros: Small words do not occupy a lot of space, as expected from encoding a quantitative value visually. The contrast is good.<br>Cons: Poor legibility.</p>
 
     <h3>Hepta Slab</h3>
     <p>
-      <a href="https://v-fonts.com/fonts/hepta-slab">Hepta Slab</a> is an elegant serif that varies in weight and goes down to hairline thickness.
+      <a href="https://v-fonts.com/fonts/hepta-slab">Hepta Slab</a> is an elegant open source font that varies in weight and goes down to hairline thickness.
     </p>
     <figure style="font-family: 'Hepta Slab'; font-size: 1.6em;">
       <span style="font-variation-settings: 'wght' 000;">Lorem ipsum 000</span><br>
@@ -116,11 +122,57 @@ body {
     <figure
       style="font-family: 'Hepta Slab'; font-size: 1.6em;"
       class="cloud"
-      data-font-var="wght"
-      data-font-min="0"
-      data-font-max="900"
+      data-font-cloud-var="wght"
+      data-font-cloud-min="0"
+      data-font-cloud-max="900"
     ></figure>
     <p>Pros: Readable. Width almost constant. Excellent contrast, especially how words which represent a value close to zero are almost invisible.<br>Cons: Words with low values are still there and create negative space (desirable or not depending on the situation).<br>Note: we could trivially tune the minimum wieght to not have it too thin if we wanted to.</p>
+
+    <h3>Source Code Variable</h3>
+    <p>
+      <a href="https://v-fonts.com/fonts/source-code-variable">Source Code Variable</a> has a fixed width and a good range of weights, though not as much as Hepta.
+    </p>
+    <figure style="font-family: 'Source Code Variable'; font-size: 1.6em;">
+      <span style="font-variation-settings: 'wght' 200;">Lorem ipsum 200</span><br>
+      <span style="font-variation-settings: 'wght' 375;">Lorem ipsum 375</span><br>
+      <span style="font-variation-settings: 'wght' 375;">Lorem ipsum 375</span><br>
+      <span style="font-variation-settings: 'wght' 550;">Lorem ipsum 550</span><br>
+      <span style="font-variation-settings: 'wght' 725;">Lorem ipsum 725</span><br>
+      <span style="font-variation-settings: 'wght' 900;">Lorem ipsum 900</span><br>
+    </figure>
+    <p>Contrary to Hepta, the width is perfectly constant across all the scale! Having a fixed width also has a number of applications to data visualization.</p>
+    <figure
+      style="font-family: 'Source Code Variable'; font-size: 1.6em;"
+      class="cloud"
+      data-font-cloud-var="wght"
+      data-font-cloud-min="200"
+      data-font-cloud-max="900"
+    ></figure>
+    <p>Not the best on every aspect, but a really good compromise.</p>
+
+    <h2>Changing the size at fixed thickness</h2>
+    <p>Another approach that I really like, notably because I often have to design large printable maps (of networks), it the possibility to scale the font without changing the thickness of the lines. As if someone had drawn the letters bigger while still using the same pen.</p>
+    <p>Unfortunately we have no straightforward variable for that, but we can just come up with a rule to compensate size and thickness (generally linearly). Below is an example with Hepta.</p>
+    <figure
+      style="font-family: 'Hepta Slab';"
+      data-font-scale-var="wght"
+      data-font-scale-var-min="400"
+      data-font-scale-var-max="200"
+      data-font-scale-size-min="9"
+      data-font-scale-size-max="64"
+      data-font-scale-value-min="0"
+      data-font-scale-value-max="12.3"
+    >
+      <p>Annual growth rate in largest coffee exporting countries</p>
+      <span class="size-scale" data-font-scale-value="12.3">Thailand 12.3%</span><br>
+      <span class="size-scale" data-font-scale-value="8.6">Vietnam 8.6%</span><br>
+      <span class="size-scale" data-font-scale-value="7.7">Indonesia 7.7%</span><br>
+      <span class="size-scale" data-font-scale-value="7.6">Philippines 7.6%</span><br>
+      <span class="size-scale" data-font-scale-value="5.1">India 5.1%</span><br>
+      <span class="size-scale" data-font-scale-value="3.2">Columbia 3.2%</span><br>
+      <span class="size-scale" data-font-scale-value="2.6">Ethiopia 2.6%</span><br>
+    </figure>
+    <p>The simple linear rule I came up with seems to produce thicker lines in the intermediate values. For a given font, some mathematical tuning is certainly necessary.</p>
 
     <footer>
       <p>TODO: <a href="">link to repo</a></p>
@@ -139,9 +191,9 @@ $.each( words.split(/[ \?,\.:]/), function(i, w) {
 });
 
 $('.word').each(function(i, el){
-  var fontVar = $(el).parent().attr('data-font-var')
-  var fontMin = +$(el).parent().attr('data-font-min')
-  var fontMax = +$(el).parent().attr('data-font-max')
+  var fontVar = $(el).parent().attr('data-font-cloud-var')
+  var fontMin = +$(el).parent().attr('data-font-cloud-min')
+  var fontMax = +$(el).parent().attr('data-font-cloud-max')
   $(el).attr('style', 'font-variation-settings: \''+fontVar+'\' '+getRandomInt(fontMin, fontMax)+';')
 })
 
@@ -151,6 +203,24 @@ function getRandomInt( min, max ) {
   return Math.floor( Math.random() * (max - min) ) + min;
 }
 
+// Scale at fixed thickness
+$('.size-scale').each(function(i, el){
+  var fontVar = $(el).parent().attr('data-font-scale-var')
+  var fontVarMin = +$(el).parent().attr('data-font-scale-var-min')
+  var fontVarMax = +$(el).parent().attr('data-font-scale-var-max')
+  var fontSizeMin = +$(el).parent().attr('data-font-scale-size-min')
+  var fontSizeMax = +$(el).parent().attr('data-font-scale-size-max')
+  var fontValueMin = +$(el).parent().attr('data-font-scale-value-min')
+  var fontValueMax = +$(el).parent().attr('data-font-scale-value-max')
+  var fontValue = +$(el).attr('data-font-scale-value')
+
+  var fontSize = fontSizeMin + (fontSizeMax-fontSizeMin) * (fontValue - fontValueMin) / (fontValueMax-fontValueMin)
+  var fontVarValue = fontVarMin + (fontVarMax-fontVarMin) * (fontValue - fontValueMin) / (fontValueMax-fontValueMin)
+
+  console.log(fontSize, fontVarValue)
+
+  $(el).attr('style', 'font-variation-settings: \''+fontVar+'\' '+Math.round(fontVarValue)+'; font-size:'+Math.round(fontSize)+'px;')
+})
 
 </script>
 </body>
